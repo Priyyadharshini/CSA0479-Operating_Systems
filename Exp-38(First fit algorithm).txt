@@ -1,0 +1,29 @@
+#include<stdio.h>
+Void main()
+{Int bsize[10], psize[10], bno, pno, flags[10], allocation[10], i, j;
+For(i = 0; i < 10; i++)
+{Flags[i] = 0;
+Allocation[i] = -1;}
+Printf(“Enter no. Of blocks: “);
+Scanf(“%d”, &bno);
+Printf(“\nEnter size of each block: “);
+For(i = 0; i < bno; i++)
+Scanf(“%d”, &bsize[i]);
+Printf(“\nEnter no. Of processes: “);
+Scanf(“%d”, &pno);
+Printf(“\nEnter size of each process: “);
+For(i = 0; i < pno; i++)
+Scanf(“%d”, &psize[i]);
+For(i = 0; i < pno; i++) 
+For(j = 0; j < bno; j++)
+If(flags[j] == 0 && bsize[j] >= psize[i])
+{Allocation[j] = i;
+Flags[j] = 1;
+Break;}
+Printf(“\nBlock no.\tsize\t\tprocess no.\t\tsize”);
+For(i = 0; i < bno; i++)
+{Printf(“\n%d\t\t%d\t\t”, i+1, bsize[i]);
+If(flags[i] == 1)
+Printf(“d\t\t\td”,allocation[i]+1,psize[allocation[i]]);
+Else
+Printf(“Not allocated”);}}

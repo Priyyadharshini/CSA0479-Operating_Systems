@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<conio.h>
+#define max 25
+Void main(){
+Int frag[max],b[max],f[max],i,j,nb,nf,temp,highest=0;
+Static int bf[max],ff[max];
+Clrscr();
+Printf(“\n\tMemory Management Scheme – Worst Fit”);
+Printf(“\nEnter the number of blocks:”);
+Scanf(“%d”,&nb);
+Printf(“Enter the number of files:”);
+Scanf(“%d”,&nf);
+Printf(“\nEnter the size of the blocks:-\n”);
+For(i=1;i<=nb;i++){
+Printf(“Block %d:”,i);
+Scanf(“%d”,&b[i]);}
+Printf(“Enter the size of the files :-\n”);
+For(i=1;i<=nf;i++){
+Printf(“File %d:”,i);
+Scanf(“%d”,&f[i]);}
+For(i=1;i<=nf;i++){
+For(j=1;j<=nb;j++){
+If(bf[j]!=1) //if bf[j] is not allocated{
+Temp=b[j]-f[i];
+If(temp>=0)
+If(highest<temp){
+Ff[i]=j;
+Highest=temp;}}
+Frag[i]=highest;
+Bf[ff[i]]=1;
+Highest=0;}
+Ff[i]=j;
+Highest=temp;}
+Printf(“\nFile_no:\tFile_size:\tBlock_no:\tBlock_size:\tFragement;
+For(i=1;i<=nf;i++)
+Printf(“\n%d\t\t%d\t\t%d\t\t%d\t\t%d”,i,f[i],ff[i],b[ff[i]],frag[i]);
+Getch();}

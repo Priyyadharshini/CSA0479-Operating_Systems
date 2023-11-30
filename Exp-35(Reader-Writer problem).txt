@@ -1,0 +1,39 @@
+#include<semaphore.h>
+#include<stdio.h>
+#include<stdlib.h>
+Sem_t x,y;
+Pthread_t tid;
+Pthread_t writerthreads[100],readerthreads[100];
+Int readercount;
+Void *reader(void* param){
+ Sem_wait(&x);
+ Readercount++;
+ If(readercount==1)
+ Sem_wait(&y);
+ Sem_post(&x);
+ Printf(“\n%d reader is inside”,readercount);
+ Sem_wait(&x);
+ Readercount--;
+ If(readercount==0) {
+ Sem_post(&y); }
+ Sem_post(&x);
+ Printf(“\n%d Reader is leaving”,readercount+1);}
+Void *writer(void* param){
+ Printf(“\nWriter is trying to enter”);
+ Sem_wait(&y);
+ Printf(“\nWriter has entered”);
+ Sem_post(&y);
+ Printf(“\nWriter is leaving”);}
+Int main(){
+ Int n2,i;
+ Printf(“Enter the number of readers:”);
+ Scanf(“%d”,&n2);
+ Int n1[n2];
+ Sem_init(&x,0,1);
+ Sem_init(&y,0,1);
+ For(i=0;i<n2;i++){
+ Pthread_create(&writerthreads[i],NULL,reader,NULL);
+ Pthread_create(&readerthreads[i],NULL,writer,NULL); }
+ For(i=0;i<n2;i++) {
+ Pthread_join(writerthreads[i],NULL);
+ Pthread_join(readerthreads[i],NULL);}}

@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<process.h>
+Void main(){
+Int a[20],p[20],i,j,n,m;
+Printf(“Enter no of Blocks.\n”);
+Scanf(“%d”,&n);
+For(i=0;i<n;i++){
+ Printf(“Enter the %dst Block size:”,i);
+ Scanf(“%d”,&a[i]);}
+Printf(“Enter no of Process.\n”);
+Scanf(“%d”,&m);
+For(i=0;i<m;i++){
+ Printf(“Enter the size of %dst Process:”,i);
+ Scanf(“%d”,&p[i]);
+} For(i=0;i<n;i++){
+For(j=0;j<m;j++) {
+ If(p[j]<=a[i] { Printf(“The Process %d allocated to %d\n”,j,a[i]);
+ P[j]=10000;
+ Break; } }}
+For(j=0;j<m;j++){
+If(p[j]!=10000) {
+Printf(“The Process %d is not allocated\n”,j); }}}

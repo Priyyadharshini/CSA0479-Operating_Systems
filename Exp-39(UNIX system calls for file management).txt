@@ -1,0 +1,15 @@
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <stdio.h>
+Int main()
+{Int n, fd;
+ Char buff[50];
+ Printf(“Enter text to write in the file:\n”);
+ N = read(0, buff, 50);
+ Fd = open(“file”, O_CREAT | O_RDWR, 0777);
+ Write(fd, buff, n);
+ Write(1, buff, n);
+ Int close(int fd);
+ Return 0;}

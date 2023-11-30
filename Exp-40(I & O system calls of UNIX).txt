@@ -1,0 +1,19 @@
+#include <unistd.h>
+#include <fcntl.h>
+#include <string.h>
+#include <stdio.h>
+Int main()
+{Int fd[2];
+Char buf1[25] = “just a test\n”;
+Char buf2[100];
+Fd[0] = open(“tfile”,O_RDWR);
+Fd[1] = open(“tfile”,O_RDWR);
+Write(fd[0],buf1,strlen(buf1));
+Printf(“\nEnter your text now…”);
+Gets(buf1);
+Write(fd[0],buf1,strlen(buf1));
+Write(1, buf2, read(fd[1],buf2,sizeof(buf2)));
+Close(fd[0]);
+Close(fd[1]);
+Printf(“\n”);
+Return 0;}
